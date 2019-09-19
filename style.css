@@ -46,8 +46,10 @@ body {
 
   #info {
     text-align: left;
-    font-size: 13px;
   }
 
+  #desc {
+    font-size: 10px;
+  }
 
 
