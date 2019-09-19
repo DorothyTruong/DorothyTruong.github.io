@@ -1,8 +1,48 @@
 body {
-    background-color: blue;
+    background-color: white;
   }
   
-  h1 {
-    color: navy;
-    margin-left: 20px;
+  #AD {
+    text-align:center;
+    border-style: solid;
+    border-width: thin;
+    border-color: gray;
+    color: black;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 50px;
   }
+
+  input[type="text"]{
+    margin-bottom: 20px;
+  }
+
+  .container {
+    border-style: solid;
+    border-width:thin;
+    border-top: none;
+    border-color: grey;
+    display: flex;
+    flex-wrap: wrap;
+    text-align:center;
+    width: 30%;
+    margin: 0 auto;
+    color: black;
+
+  }
+
+  img {
+    margin-right: 10px;
+    margin-left:10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  .container:hover {
+    background-color: orchid;
+    opacity: 0.5;
+  }
+
+
+
+
