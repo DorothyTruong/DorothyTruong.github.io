@@ -25,7 +25,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     text-align:center;
-    width: 30%;
+    width: 40%;
     margin: 0 auto;
     color: black;
 
@@ -43,6 +43,9 @@ body {
     opacity: 0.5;
   }
 
+  #info {
+    text-align: left;
+  }
 
 
 
