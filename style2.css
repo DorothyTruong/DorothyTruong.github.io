@@ -46,7 +46,6 @@ body {
     font-family: 'Roboto', sans-serif;
     border-style: solid;
     border-width:thin;
-    border-top: none;
     border-color: grey;
     display: flex;
     flex-wrap: wrap;
@@ -72,6 +71,13 @@ body {
   .info {
     text-align: left;
     font-size:12px;
+  }
+
+  .delete-button{
+    background: red;
+    height: 30px;
+    margin-left:150px;
+    margin-top: 30px;
   }
 
 

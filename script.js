@@ -30,4 +30,35 @@ function myInput(){
     header.appendChild(name);
     infoDiv.appendChild(p2);
     p2.appendChild(description); 
+
+
+    //delete button creation
+    // creating button element  
+    var button = document.createElement('BUTTON');  
+    button.classList.add('delete-button');
+
+    // creating text to be 
+    //displayed on button 
+    var text = document.createTextNode("Delete"); 
+    // appending text to button 
+    button.appendChild(text); 
+    // appending button to div 
+    containerDiv.appendChild(button);
+
+
+    document.getElementById("add-form").style.display = 'none'; //hides form after submitting
+
 }
+
+
+function deleteUser() {
+
+//give button this function
+
+
+}
+
+
+
+
+
