@@ -14,14 +14,16 @@ function myInput(){
     var containerDiv = document.createElement('div');
     var image = document.createElement('img');
     var infoDiv = document.createElement('div');
-    infoDiv.classList.add('info');  // way of adding a class to my infoDiv
     var p1 = document.createElement('p');
     var header = document.createElement('h2');
     var name = document.createTextNode(input.elements[0].value);
     var description = document.createTextNode(input.elements[1].value);
     var p2 = document.createElement('p');
-    allArtists.appendChild(containerDiv);                //appending my new div to my div in my html
+
+    infoDiv.classList.add('info');  // way of adding a class to my infoDiv
     containerDiv.classList.add('container');
+
+    allArtists.appendChild(containerDiv);  //appending my new div to my div in my html
     image.setAttribute('src', input.elements[2].value);
     containerDiv.appendChild(image);
     containerDiv.appendChild(infoDiv);
@@ -45,17 +47,16 @@ function myInput(){
     // appending button to div 
     containerDiv.appendChild(button);
 
+    button.onclick = removeArtist; //removes artist
 
     document.getElementById("add-form").style.display = 'none'; //hides form after submitting
 
 }
 
 
-function deleteUser() {
-
-//give button this function
-
-
+function removeArtist() {
+    var art = this.parentNode;
+    art.parentNode.removeChild(art);
 }
 
 
