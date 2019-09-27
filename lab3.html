@@ -7,18 +7,42 @@
 </head>
 <body>
 
+
     <div id="AD">
+
         <div  id="title">
             <h1>
                 Artist Directory
             </h1>
         </div>
+
         <form class="search-form">
             <input type="text" class="search-box">
-            <button onclick="myFunction()">MORE BUTTONS</button>
+            <!-- <button type="button" onclick="myFunction()">Add artist</button> -->
+            <button type="button" onclick="myFunction()">Add</button>
         </form>
+
     </div>
 
+
+
+    <div id="add-user-div">
+        <form id="add-form">
+            <div class="input-container">
+              <input class="input-field" type="text" placeholder="Artist Name" name="username">
+            </div>
+          
+            <div class="input-container">
+              <input class="input-field" type="text" placeholder="About artist" name="about">
+            </div>
+          
+            <div class="input-container">
+              <input class="input-field" type="text" placeholder="Image url" name="url">
+            </div>
+          
+            <button type="submit" class="btn">Add User</button>
+          </form>
+    </div>
 
 
 
