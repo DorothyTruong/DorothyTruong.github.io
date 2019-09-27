@@ -1,0 +1,67 @@
+body {
+    background-color: white;
+  }
+  
+  #AD {
+    font-family: 'Noto Sans JP', sans-serif;
+    border-style: solid;
+    border-width: thin;
+    border-color: gray;
+    color: black;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 50px;
+  }
+
+  #title {
+    text-align:left;
+    margin-top: -10px;
+    margin-left: 5%;
+  }
+
+
+  .search-form {
+    margin: 0 1rem;  
+    flex-grow: 1; /* <-- THE SECRET SAUCE! */
+    min-width: 5rem;
+  }
+  
+  .search-box {
+    width: 95%;  
+    padding: .4rem;
+    margin-bottom: 20px;
+  }
+
+  .container {
+    font-family: 'Roboto', sans-serif;
+    border-style: solid;
+    border-width:thin;
+    border-top: none;
+    border-color: grey;
+    display: flex;
+    flex-wrap: wrap;
+    text-align:center;
+    width: 40%;
+    margin: 0 auto;
+    color: black;
+
+  }
+
+  .container:hover {
+    background-color: orchid;
+    opacity: 0.5;
+  }
+
+  img {
+    margin-right: 13px;
+    margin-left:13px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  #info {
+    text-align: left;
+    font-size:12px;
+  }
+
+
