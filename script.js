@@ -13,7 +13,16 @@ function myFunction() {
 
 
 
+
 function myInput(){
+
+    if (document.getElementById("username").value == "" ||
+    document.getElementById("about").value == "" ||
+    document.getElementById("url").value == "") 
+    {
+        alert("All fields must be filled.")
+    } else {
+
     var input = document.querySelector("#add-form");  //this accesses my #add-form in my html
     var allArtists = document.querySelector('#all-artists');          //this is a way to access my div in my html
     var containerDiv = document.createElement('div');
@@ -51,6 +60,7 @@ function myInput(){
 
     input.reset();  //clears form 
     document.getElementById("add-form").style.display = 'none'; //hides form after submitting
+    }
 }
 
 
