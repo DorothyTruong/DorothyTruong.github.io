@@ -8,7 +8,7 @@ body {
     border-width: thin;
     border-color: gray;
     color: black;
-    width: 55%;
+    width: 62%;
     margin: 0 auto;
     margin-top: 50px;
   }
@@ -21,14 +21,13 @@ body {
 
   .search-form {
     margin: 0 1rem;  
-    flex-grow: 1; /* <-- THE SECRET SAUCE! */
+    flex-grow: 1; 
     min-width: 5rem;
     display: flex;
   }
 
   #add-user-div {
     text-align: center;
-    background: green;
   }
 
   .search-box {
@@ -39,6 +38,7 @@ body {
   }
 
   .search-form button {
+    font-family: 'Noto Sans JP', sans-serif;
     display: block;
     height: 32px;
     background: lightgrey;
@@ -48,7 +48,11 @@ body {
     width: 100px;
   }
 
-  .container {    /*main div*/
+  .container {   
+
+    align-items:center;
+    justify-content:center;
+
     font-family: 'Roboto', sans-serif;
     border-style: solid;
     border-width:thin;
@@ -56,9 +60,9 @@ body {
     display: flex;
     flex-wrap: wrap;
     text-align:center;
-    width: 45%;
+    width: 52%;
     margin: 0 auto;
-    background: purple;
+    /* background: purple; */
 
   }
 
@@ -72,22 +76,28 @@ body {
     margin-left:13px;
     margin-top: 10px;
     margin-bottom: 10px;
+    border-radius: 5px;
   }
 
   .info {
     text-align: left;
     font-size:12px;
-    background: blue;
+    /* background: blue; */
+    min-width: 200px;
+    margin-right:8px;
   }
 
   .delete-button{
-    background: red;
+    font-family: 'Roboto', sans-serif;
+    background: rgba(255, 8, 0, 0.884);
     height: 32px;
     margin-top: 30px;
     border: solid 1px transparent;
     border-radius: 4px;
     margin-left: auto;
     color: white;
+    margin-right: 13px;
+    margin-bottom: 27px;
   }
 
 

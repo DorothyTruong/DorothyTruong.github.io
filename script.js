@@ -12,6 +12,7 @@ function myFunction() {
 }
 
 
+
 function myInput(){
     var input = document.querySelector("#add-form");  //this accesses my #add-form in my html
     var allArtists = document.querySelector('#all-artists');          //this is a way to access my div in my html
