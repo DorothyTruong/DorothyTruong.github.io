@@ -1,3 +1,7 @@
+//hides the form
+document.getElementById("add-form").style.display = 'none';
+
+
 function myFunction() {
     var x = document.getElementById("add-form");
     if (x.style.display === "none") {
@@ -20,8 +24,10 @@ function myInput(){
     var description = document.createTextNode(input.elements[1].value);
     var p2 = document.createElement('p');
 
+
     infoDiv.classList.add('info');  // way of adding a class to my infoDiv
     containerDiv.classList.add('container');
+
 
     allArtists.appendChild(containerDiv);  //appending my new div to my div in my html
     image.setAttribute('src', input.elements[2].value);
@@ -34,23 +40,16 @@ function myInput(){
     p2.appendChild(description); 
 
 
-    //delete button creation
-    // creating button element  
-    var button = document.createElement('BUTTON');  
+    var button = document.createElement('BUTTON');   //creating (delete) button element
     button.classList.add('delete-button');
+    var text = document.createTextNode("Delete");    //creating text node to be displayed on button
+    button.appendChild(text);                        //appending text to button
+    containerDiv.appendChild(button);                //appending button to div
+    button.onclick = removeArtist;                   //removes artist
 
-    // creating text to be 
-    //displayed on button 
-    var text = document.createTextNode("Delete"); 
-    // appending text to button 
-    button.appendChild(text); 
-    // appending button to div 
-    containerDiv.appendChild(button);
 
-    button.onclick = removeArtist; //removes artist
-
+    input.reset();  //clears form 
     document.getElementById("add-form").style.display = 'none'; //hides form after submitting
-
 }
 
 
