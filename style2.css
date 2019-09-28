@@ -8,7 +8,7 @@ body {
     border-width: thin;
     border-color: gray;
     color: black;
-    width: 62%;
+    width: 62.5%;
     margin: 0 auto;
     margin-top: 50px;
   }
@@ -26,10 +26,6 @@ body {
     display: flex;
   }
 
-  #add-user-div {
-    text-align: center;
-  }
-
   .search-box {
     width: 95%;  
     padding: .4rem;
@@ -45,7 +41,30 @@ body {
     border: solid 1px transparent;
     border-radius: 4px;
     margin-left: 5px;
-    width: 100px;
+    min-width: 80px;
+  }
+
+  #add-user-div {
+    text-align: center;
+  }
+
+  .input-field {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 300px;
+  }
+
+  #add-user-button{
+    font-family: 'Noto Sans JP', sans-serif;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width:100px;
+    height: 30px;
+    background: lightgray;
+    border: solid 1px transparent;
+    border-radius: 4px;
   }
 
   .container {   
@@ -60,8 +79,6 @@ body {
     text-align:center;
     width: 52%;
     margin: 0 auto;
-    /* background: purple; */
-
   }
 
   .container:hover {
@@ -82,7 +99,6 @@ body {
   .info {
     text-align: left;
     font-size:12px;
-    /* background: blue; */
     min-width: 200px;
     margin-right:8px;
   }
@@ -99,24 +115,3 @@ body {
     margin-right: 13px;
     margin-bottom: 27px;
   }
-  
-
-  .input-field {
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    width: 300px;
-  }
-
-  #add-user-button{
-    font-family: 'Noto Sans JP', sans-serif;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    width:100px;
-    height: 30px;
-    background: lightgrey;
-    border: solid 1px transparent;
-    border-radius: 4px;
-  }
-
