@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style4.css">
+<script src="script4.js" defer></script>
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="AD">
+
+        <div  id="title">
+            <h1>
+                Artist Directory
+            </h1>
+        </div>
+
+        <form class="search-form">
+            <input type="text" class="search-box">
+            <button type="button" onclick="myFunction()">Add artist</button>
+        </form>
+
+    </div>
+
+
+    <div id="add-user-div">
+        <form id="add-form">
+            <div class="input-container">
+              <input class="input-field" id="username" type="text" placeholder="Artist Name" maxlength="40">
+            </div>
+          
+            <div class="input-container">
+              <input class="input-field" id="about" type="text" placeholder="About artist" maxlength="40">
+            </div>
+          
+            <div class="input-container">
+              <input class="input-field" id="url" type="text" placeholder="Image url">
+            </div>
+          
+            <button type="button" id="add-user-button" class="btn" onclick="myInput();">Add</button>
+
+          </form>
+    </div>
+
+
+    <div id="all-artists">
+    </div>
+
+</body>
+</html>
