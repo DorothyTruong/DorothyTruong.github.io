@@ -2,14 +2,14 @@ window.onload = function() {
   document.getElementById("add-form").style.display = 'none'; //hides the form
 
 
-  if ("user" in localStorage) {
-    var storedUsers = Array.from(retrieveUsers());
-    for (var i = 0; i < storedUsers.length; i++) {
-      let user = storedUsers[i];
-      populate(user.userName, user.userDesc, user.userURL);
-    }
-} else {
-}
+//   if ("user" in localStorage) {
+//     var storedUsers = Array.from(retrieveUsers());
+//     for (var i = 0; i < storedUsers.length; i++) {
+//       let user = storedUsers[i];
+//       populate(user.userName, user.userDesc, user.userURL);
+//     }
+// } else {
+// }
 
 
   // if(localStorage.getItem("user") == null){
@@ -22,11 +22,11 @@ window.onload = function() {
   // }
 
 
-  // var storedUsers = Array.from(retrieveUsers());
-  // for (var i = 0; i < storedUsers.length; i++) {
-  //   let user = storedUsers[i];
-  //   populate(user.userName, user.userDesc, user.userURL);
-  // }
+  var storedUsers = Array.from(retrieveUsers());
+  for (var i = 0; i < storedUsers.length; i++) {
+    let user = storedUsers[i];
+    populate(user.userName, user.userDesc, user.userURL);
+  }
 }
 
 function populate(artistName, aboutArtist, artistURL){
@@ -108,6 +108,7 @@ function removeArtist() {
     art.parentNode.removeChild(art);
     localStorage.setItem('user', JSON.stringify(currentList));
 }
+
 
 
 function storeUser(){
