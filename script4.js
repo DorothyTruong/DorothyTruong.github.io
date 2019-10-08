@@ -1,11 +1,44 @@
 window.onload = function() {
   document.getElementById("add-form").style.display = 'none'; //hides the form
 
-  var users = retrieveUsers();
-  console.log(Array.from(users).length);
+  var storedUsers = Array.from(retrieveUsers());
+  for (var i = 0; i < storedUsers.length; i++) {
+    let user = storedUsers[i];
+    populate(user.userName, user.userDesc, user.userURL);
+  }
 }
 
+function populate(artistName, aboutArtist, artistURL){
+    var allArtists = document.querySelector('#all-artists');          //this is a way to access my div in my html
+    var containerDiv = document.createElement('div');
+    var image = document.createElement('img');
+    var infoDiv = document.createElement('div');
+    var p1 = document.createElement('p');
+    var header = document.createElement('h2');
+    var name = document.createTextNode(artistName);
+    var description = document.createTextNode(aboutArtist);
+    var p2 = document.createElement('p');
 
+    infoDiv.classList.add('info');  // way of adding a class to my infoDiv
+    containerDiv.classList.add('container');
+
+    allArtists.appendChild(containerDiv);  //appending my new div to my div in my html
+    image.setAttribute('src', artistURL);
+    containerDiv.appendChild(image);
+    containerDiv.appendChild(infoDiv);
+    infoDiv.appendChild(p1);
+    p1.appendChild(header);
+    header.appendChild(name);
+    infoDiv.appendChild(p2);
+    p2.appendChild(description); 
+
+    var button = document.createElement('BUTTON');   //creating (delete) button element
+    button.classList.add('delete-button');
+    var text = document.createTextNode("Delete");    //creating text node to be displayed on button
+    button.appendChild(text);                        //appending text to button
+    containerDiv.appendChild(button);                //appending button to div
+    button.onclick = removeArtist;                   //removes artist
+}
 
 
 function myFunction() {
@@ -23,56 +56,36 @@ function myInput() {
     var artistAbout = document.getElementById("about");
     var artistURL = document.getElementById("url");
 
-    if(artistName.value == "" || artistAbout.value == "" || artistURL.value == ""){
+    if (artistName.value == "" || artistAbout.value == "" || artistURL.value == ""){
         alert("All fields must be filled.");
     } else {
 
-    var input = document.querySelector("#add-form");  //this accesses my #add-form in my html
-    var allArtists = document.querySelector('#all-artists');          //this is a way to access my div in my html
-    var containerDiv = document.createElement('div');
-    var image = document.createElement('img');
-    var infoDiv = document.createElement('div');
-    var p1 = document.createElement('p');
-    var header = document.createElement('h2');
-    var name = document.createTextNode(input.elements[0].value);
-    var description = document.createTextNode(input.elements[1].value);
-    var p2 = document.createElement('p');
+      var input = document.querySelector("#add-form");  //this accesses my #add-form in my html
+      populate(input.elements[0].value, input.elements[1].value, input.elements[2].value);
 
-    infoDiv.classList.add('info');  // way of adding a class to my infoDiv
-    containerDiv.classList.add('container');
+      //local storage function for storing
+      storeUser();
 
-    allArtists.appendChild(containerDiv);  //appending my new div to my div in my html
-    image.setAttribute('src', input.elements[2].value);
-    containerDiv.appendChild(image);
-    containerDiv.appendChild(infoDiv);
-    infoDiv.appendChild(p1);
-    p1.appendChild(header);
-    header.appendChild(name);
-    infoDiv.appendChild(p2);
-    p2.appendChild(description); 
-
-    var button = document.createElement('BUTTON');   //creating (delete) button element
-    button.classList.add('delete-button');
-    var text = document.createTextNode("Delete");    //creating text node to be displayed on button
-    button.appendChild(text);                        //appending text to button
-    containerDiv.appendChild(button);                //appending button to div
-    button.onclick = removeArtist;                   //removes artist
-
-
-    //local storage function for storing
-    storeUser();
-
-
-    input.reset();  //clears form 
-    document.getElementById("add-form").style.display = 'none'; //hides form after submitting
-
+      input.reset();  //clears form 
+      document.getElementById("add-form").style.display = 'none'; //hides form after submitting
     }
 }
 
 
 function removeArtist() {
     var art = this.parentNode;
+
+    const deadArt = {
+      userName: art.getElementsByTagName('h2')[0].innerHTML,
+      userDesc: art.getElementsByTagName('p')[1].innerHTML
+    }
+
+    var currentList = Array.from(retrieveUsers());
+    currentList = currentList.filter(currentList => currentList.userName !== deadArt.userName 
+                                    && currentList.userDesc !== deadArt.userDesc);
+    
     art.parentNode.removeChild(art);
+    localStorage.setItem('user', JSON.stringify(currentList));
 }
 
 
@@ -95,6 +108,40 @@ function retrieveUsers() {
 }
 
 
+// function searchUsers(){
+//   var input, filter, ul, li, a, i, txtValue;
+//     input = document.getElementById("searchButton");
+//     filter = input.value.toUpperCase();
+
+//     ul = document.getElementById("myUL");
+//     li = ul.getElementsByTagName("li");
+
+
+//     var currentList = Array.from(retrieveUsers());
+//     currentList = currentList.filter(currentList => currentList.userName == deadArt.userName);
+
+//     for (var i = 0; i < currentList.userName.length; i++) {
+//       if(currentList = currentList.filter(currentList => currentList.userName == deadArt.userName)){
+//         let user = storedUsers[i];
+//         populate(user.userName, user.userDesc, user.userURL);
 
 
 
+//       }
+
+
+      
+//     }
+
+
+//     for (i = 0; i < li.length; i++) {
+//         a = li[i].getElementsByTagName("a")[0];
+//         txtValue = a.textContent || a.innerText;
+//         if (txtValue.toUpperCase().indexOf(filter) > -1) {
+//             li[i].style.display = "";
+//         } else {
+//             li[i].style.display = "none";
+//         }
+//     }
+
+// }
