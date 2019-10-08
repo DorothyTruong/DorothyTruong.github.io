@@ -1,33 +1,13 @@
 window.onload = function() {
   document.getElementById("add-form").style.display = 'none'; //hides the form
-
-
-//   if ("user" in localStorage) {
-//     var storedUsers = Array.from(retrieveUsers());
-//     for (var i = 0; i < storedUsers.length; i++) {
-//       let user = storedUsers[i];
-//       populate(user.userName, user.userDesc, user.userURL);
-//     }
-// } else {
-// }
-
-
-  // if(localStorage.getItem("user") == null){
-  // } else {
-  //   var storedUsers = Array.from(retrieveUsers());
-  //   for (var i=0; i < storedUsers.length;i++){
-  //     let user = storedUsers[i];
-  //     this.populate(user.userName, user.userDesc, user.userURL);
-  //   }
-  // }
-
-
   var storedUsers = Array.from(retrieveUsers());
+
   for (var i = 0; i < storedUsers.length; i++) {
     let user = storedUsers[i];
     populate(user.userName, user.userDesc, user.userURL);
   }
 }
+
 
 function populate(artistName, aboutArtist, artistURL){
     var allArtists = document.querySelector('#all-artists');          //this is a way to access my div in my html
@@ -140,19 +120,29 @@ function searchUsers(){
 
   var currentList = Array.from(retrieveUsers());
   var input = document.getElementById("searchInput");
+  var filterList = [];
 
   for(i = 0; i < currentList.length; i++){
-    
     //console.log(input.value);
     console.log(currentList[i].userName);
 
-    if(input.value == currentList[i].userName){
+    if(((currentList[i].userName).toLowerCase()).includes((input.value).toLowerCase())){
       console.log("hello");
-
+      filterList.push(currentList[i]);
     } else {
       console.log("goodbye");
-
     }
+  }
+
+  //console.log(filterList);
+  var allArtists = document.querySelector('#all-artists'); 
+
+  while(allArtists.firstChild){
+    allArtists.removeChild(allArtists.firstChild)
+  }
+  
+  for(i = 0; i < filterList.length; i ++){
+    populate(filterList[i].userName, filterList[i].userDesc, filterList[i].userURL);
   }
 }
 
