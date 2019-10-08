@@ -1,33 +1,33 @@
-window.onload = function() {
-  document.getElementById("add-form").style.display = 'none'; //hides the form
+// window.onload = function() {
+//   document.getElementById("add-form").style.display = 'none'; //hides the form
 
 
-  if ("user" in localStorage) {
-    var storedUsers = Array.from(retrieveUsers());
-    for (var i = 0; i < storedUsers.length; i++) {
-      let user = storedUsers[i];
-      populate(user.userName, user.userDesc, user.userURL);
-    }
-} else {
-}
+// //   if ("user" in localStorage) {
+// //     var storedUsers = Array.from(retrieveUsers());
+// //     for (var i = 0; i < storedUsers.length; i++) {
+// //       let user = storedUsers[i];
+// //       populate(user.userName, user.userDesc, user.userURL);
+// //     }
+// // } else {
+// // }
 
 
-  // if(localStorage.getItem("user") == null){
-  // } else {
-  //   var storedUsers = Array.from(retrieveUsers());
-  //   for (var i=0; i < storedUsers.length;i++){
-  //     let user = storedUsers[i];
-  //     this.populate(user.userName, user.userDesc, user.userURL);
-  //   }
-  // }
+//   // if(localStorage.getItem("user") == null){
+//   // } else {
+//   //   var storedUsers = Array.from(retrieveUsers());
+//   //   for (var i=0; i < storedUsers.length;i++){
+//   //     let user = storedUsers[i];
+//   //     this.populate(user.userName, user.userDesc, user.userURL);
+//   //   }
+//   // }
 
 
-  // var storedUsers = Array.from(retrieveUsers());
-  // for (var i = 0; i < storedUsers.length; i++) {
-  //   let user = storedUsers[i];
-  //   populate(user.userName, user.userDesc, user.userURL);
-  // }
-}
+//   var storedUsers = Array.from(retrieveUsers());
+//   for (var i = 0; i < storedUsers.length; i++) {
+//     let user = storedUsers[i];
+//     populate(user.userName, user.userDesc, user.userURL);
+//   }
+// }
 
 function populate(artistName, aboutArtist, artistURL){
     var allArtists = document.querySelector('#all-artists');          //this is a way to access my div in my html
