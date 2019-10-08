@@ -8,6 +8,7 @@ window.onload = function() {
   }
 }
 
+
 function populate(artistName, aboutArtist, artistURL){
     var allArtists = document.querySelector('#all-artists');          //this is a way to access my div in my html
     var containerDiv = document.createElement('div');
@@ -63,7 +64,7 @@ function myInput() {
       var input = document.querySelector("#add-form");  //this accesses my #add-form in my html
       populate(input.elements[0].value, input.elements[1].value, input.elements[2].value);
 
-      //local storage function for storing
+      
       storeUser();
 
       input.reset();  //clears form 
@@ -92,56 +93,55 @@ function removeArtist() {
 function storeUser(){
   var input = document.querySelector("#add-form");
 
-  const user = {                                    //creates a new user with input of fields
+  const user = {                                   
     userName : input.elements[0].value,
     userDesc : input.elements[1].value,
     userURL : input.elements[2].value
   }          
 
-  localStorage.setItem('user', JSON.stringify(Array.from(retrieveUsers()).concat(user)));   //setting the new array object in local storage
+  localStorage.setItem('user', JSON.stringify(Array.from(retrieveUsers()).concat(user)));   
 }
 
 
-/* Retrieves data from local storage JSON */
 function retrieveUsers() {
   return JSON.parse(localStorage.getItem('user'));
 }
 
 
-// function searchUsers(){
-//   var input, filter, ul, li, a, i, txtValue;
-//     input = document.getElementById("searchButton");
-//     filter = input.value.toUpperCase();
+function searchUsers(){
+  var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("searchButton");
+    filter = input.value.toUpperCase();
 
-//     ul = document.getElementById("myUL");
-//     li = ul.getElementsByTagName("li");
-
-
-//     var currentList = Array.from(retrieveUsers());
-//     currentList = currentList.filter(currentList => currentList.userName == deadArt.userName);
-
-//     for (var i = 0; i < currentList.userName.length; i++) {
-//       if(currentList = currentList.filter(currentList => currentList.userName == deadArt.userName)){
-//         let user = storedUsers[i];
-//         populate(user.userName, user.userDesc, user.userURL);
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
 
 
+    var currentList = Array.from(retrieveUsers());
+    currentList = currentList.filter(currentList => currentList.userName == deadArt.userName);
 
-//       }
+    for (var i = 0; i < currentList.userName.length; i++) {
+      if(currentList = currentList.filter(currentList => currentList.userName == deadArt.userName)){
+        let user = storedUsers[i];
+        populate(user.userName, user.userDesc, user.userURL);
+
+
+
+      }
 
 
       
-//     }
+    }
 
 
-//     for (i = 0; i < li.length; i++) {
-//         a = li[i].getElementsByTagName("a")[0];
-//         txtValue = a.textContent || a.innerText;
-//         if (txtValue.toUpperCase().indexOf(filter) > -1) {
-//             li[i].style.display = "";
-//         } else {
-//             li[i].style.display = "none";
-//         }
-//     }
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
 
-// }
+}
