@@ -1,11 +1,20 @@
 window.onload = function() {
   document.getElementById("add-form").style.display = 'none'; //hides the form
 
+
   var storedUsers = Array.from(retrieveUsers());
-  for (var i = 0; i < storedUsers.length; i++) {
-    let user = storedUsers[i];
-    populate(user.userName, user.userDesc, user.userURL);
+  if(storedUsers.length !== 0){
+    for (var i=0; i < storedUsers.length;i++){
+      let user = storedUsers[i];
+      this.populate(user.userName, user.userDesc, user.userURL);
+    }
   }
+
+  // var storedUsers = Array.from(retrieveUsers());
+  // for (var i = 0; i < storedUsers.length; i++) {
+  //   let user = storedUsers[i];
+  //   populate(user.userName, user.userDesc, user.userURL);
+  // }
 }
 
 function populate(artistName, aboutArtist, artistURL){
