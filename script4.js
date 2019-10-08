@@ -119,7 +119,9 @@ function storeUser(){
     userURL : input.elements[2].value
   }          
   console.log(retrieveUsers());
-  localStorage.setItem('user', JSON.stringify(Array.from(retrieveUsers()).concat(user)));   //setting the new array object in local storage
+  let userList = retrieveUsers();
+  userList.push(user);
+  localStorage.setItem('user', JSON.stringify(userList));   //setting the new array object in local storage
 }
 
 
