@@ -1,4 +1,11 @@
-document.getElementById("add-form").style.display = 'none'; //hides the form
+window.onload = function() {
+  document.getElementById("add-form").style.display = 'none'; //hides the form
+
+  var users = retrieveUsers();
+  console.log(Array.from(users).length);
+}
+
+
 
 
 function myFunction() {
@@ -51,8 +58,14 @@ function myInput() {
     containerDiv.appendChild(button);                //appending button to div
     button.onclick = removeArtist;                   //removes artist
 
+
+    //local storage function for storing
+    storeUser();
+
+
     input.reset();  //clears form 
     document.getElementById("add-form").style.display = 'none'; //hides form after submitting
+
     }
 }
 
@@ -60,6 +73,25 @@ function myInput() {
 function removeArtist() {
     var art = this.parentNode;
     art.parentNode.removeChild(art);
+}
+
+
+function storeUser(){
+  var input = document.querySelector("#add-form");
+
+  const user = {                                    //creates a new user with input of fields
+    userName : input.elements[0].value,
+    userDesc : input.elements[1].value,
+    userURL : input.elements[2].value
+  }          
+
+  localStorage.setItem('user', JSON.stringify(Array.from(retrieveUsers()).concat(user)));   //setting the new array object in local storage
+}
+
+
+/* Retrieves data from local storage JSON */
+function retrieveUsers() {
+  return JSON.parse(localStorage.getItem('user'));
 }
 
 
