@@ -2,13 +2,25 @@ window.onload = function() {
   document.getElementById("add-form").style.display = 'none'; //hides the form
 
 
-  var storedUsers = Array.from(retrieveUsers());
-  if(storedUsers.length !== 0){
-    for (var i=0; i < storedUsers.length;i++){
+  if ("user" in localStorage) {
+    var storedUsers = Array.from(retrieveUsers());
+    for (var i = 0; i < storedUsers.length; i++) {
       let user = storedUsers[i];
-      this.populate(user.userName, user.userDesc, user.userURL);
+      populate(user.userName, user.userDesc, user.userURL);
     }
-  }
+} else {
+}
+
+
+  // if(localStorage.getItem("user") == null){
+  // } else {
+  //   var storedUsers = Array.from(retrieveUsers());
+  //   for (var i=0; i < storedUsers.length;i++){
+  //     let user = storedUsers[i];
+  //     this.populate(user.userName, user.userDesc, user.userURL);
+  //   }
+  // }
+
 
   // var storedUsers = Array.from(retrieveUsers());
   // for (var i = 0; i < storedUsers.length; i++) {
