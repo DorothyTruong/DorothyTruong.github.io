@@ -127,7 +127,11 @@ function storeUser(){
 
 /* Retrieves data from local storage JSON */
 function retrieveUsers() {
-  return JSON.parse(localStorage.getItem('user'));
+  let userList = JSON.parse(localStorage.getItem('user'));
+  if (!userList) {
+    userList = [];
+  }
+  return userList; 
 }
 
 
