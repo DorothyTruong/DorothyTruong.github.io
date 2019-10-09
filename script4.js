@@ -10,7 +10,7 @@ window.onload = function() {
 
 
 function populate(artistName, aboutArtist, artistURL){
-    var allArtists = document.querySelector('#all-artists');          //this is a way to access my div in my html
+    var allArtists = document.querySelector('#all-artists');   //this is a way to access my div in my html
     var containerDiv = document.createElement('div');
     var image = document.createElement('img');
     var infoDiv = document.createElement('div');
@@ -42,7 +42,7 @@ function populate(artistName, aboutArtist, artistURL){
 }
 
 
-function myFunction() {
+function myFunction(){
     var x = document.getElementById("add-form");
     if (x.style.display === "none") {
       x.style.display = "block";
@@ -52,7 +52,7 @@ function myFunction() {
 }
 
 
-function myInput() {
+function myInput(){
     var artistName = document.getElementById("username");
     var artistAbout = document.getElementById("about");
     var artistURL = document.getElementById("url");
@@ -60,12 +60,10 @@ function myInput() {
     if (artistName.value == "" || artistAbout.value == "" || artistURL.value == ""){
         alert("All fields must be filled.");
     } else {
-
       var input = document.querySelector("#add-form");  //this accesses my #add-form in my html
       populate(input.elements[0].value, input.elements[1].value, input.elements[2].value);
 
-      //local storage function for storing
-      storeUser();
+      storeUser(); //local storage function for storing
 
       input.reset();  //clears form 
       document.getElementById("add-form").style.display = 'none'; //hides form after submitting
@@ -73,7 +71,7 @@ function myInput() {
 }
 
 
-function removeArtist() {
+function removeArtist(){
     var art = this.parentNode;
 
     const deadArt = {
@@ -90,7 +88,6 @@ function removeArtist() {
 }
 
 
-
 function storeUser(){
   var input = document.querySelector("#add-form");
 
@@ -99,7 +96,7 @@ function storeUser(){
     userDesc : input.elements[1].value,
     userURL : input.elements[2].value
   }          
-  console.log(retrieveUsers());
+  
   let userList = retrieveUsers();
   userList.push(user);
   localStorage.setItem('user', JSON.stringify(userList));   //setting the new array object in local storage
@@ -107,7 +104,7 @@ function storeUser(){
 
 
 /* Retrieves data from local storage JSON */
-function retrieveUsers() {
+function retrieveUsers(){
   let userList = JSON.parse(localStorage.getItem('user'));
   if (!userList) {
     userList = [];
@@ -117,24 +114,16 @@ function retrieveUsers() {
 
 
 function searchUsers(){
-
   var currentList = Array.from(retrieveUsers());
   var input = document.getElementById("searchInput");
   var filterList = [];
 
   for(i = 0; i < currentList.length; i++){
-    //console.log(input.value);
-    console.log(currentList[i].userName);
-
     if(((currentList[i].userName).toLowerCase()).includes((input.value).toLowerCase())){
-      console.log("hello");
       filterList.push(currentList[i]);
-    } else {
-      console.log("goodbye");
-    }
+    } else {}
   }
 
-  //console.log(filterList);
   var allArtists = document.querySelector('#all-artists'); 
 
   while(allArtists.firstChild){
